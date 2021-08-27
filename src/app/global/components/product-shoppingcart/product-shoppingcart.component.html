@@ -1,0 +1,23 @@
+<div mat-dialog-content>
+    <div class="card border-info mb-3" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img [src]="product.image" alt="..." class="card-img-top" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title">Name: {{product.name}}</h2>
+              <h2 class="card-title">Brand: {{product.brand}}</h2>
+              <h2 class="card-title">Description</h2>
+              <p class="card-text">{{product.description}}</p>
+              <h2 class="card-title">Price: {{product.price.currencyType}}{{product.price.amount}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-fab color="primary" aria-label="shopping cart" (click)="closeDialog()">
+        <mat-icon>assignment_return</mat-icon>
+      </button>
+</div>

@@ -1,0 +1,65 @@
+.login-container{
+    width: 70%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #bbb;
+    padding: 18px;
+    text-align: center;
+
+    h1 {
+        text-align: center;
+        margin: 12px;
+    }
+
+    .btn{
+        color: white;
+        background-color: blue;
+        border: none;
+        padding: .5em 2em;
+        border-radius: 2em;
+        box-shadow: 0 0 2px 2px;
+        font-size: 18px;
+        margin-left: 5px;
+        margin-right: 5px;
+        outline: none;
+        &:hover{
+            background-color: gray;
+            cursor: pointer;
+        }
+    }
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .estilo-mensaje-error {
+    background-color: #dc143c;
+    color:white;
+
+    .mat-simple-snackbar-action {
+        color: white;
+        font-weight: bold;
+    }
+}
+
+::ng-deep .estilo-mensaje-informacion {
+    background-color: #120064;
+    color:white;
+
+    .mat-simple-snackbar-action {
+        color: white;
+        font-weight: bold;
+    }
+}
+
+::ng-deep .estilo-mensaje-exito {
+    background-color: #006400;
+    color:white;
+
+    .mat-simple-snackbar-action {
+        color: white;
+        font-weight: bold;
+    }
+}

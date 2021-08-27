@@ -1,0 +1,52 @@
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+    <form [formGroup]="product">
+        <mat-form-field *ngIf="action != 'Product Delete'" class="fullWidth" appearance="outline">
+            <mat-label>Brand *</mat-label>
+            <input matInput type="text" name="brand" formControlName="brand">
+            <mat-error *ngIf="
+            product.controls['brand']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="action != 'Product Delete'; else elseTemplate" class="fullWidth" appearance="outline">
+            <mat-label>Name *</mat-label>
+            <input matInput type="text" name="name" formControlName="name">
+            <mat-error *ngIf="
+            product.controls['name']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="action != 'Product Delete'" class="fullWidth" appearance="outline">
+            <mat-label>Descripction *</mat-label>
+            <input matInput type="text" name="description" formControlName="description" />
+            <mat-error *ngIf="
+            product.controls['description']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="action != 'Product Delete'" class="fullWidth" appearance="outline">
+            <mat-label>Image *</mat-label>
+            <input matInput type="text" name="image" formControlName="image" />
+            <mat-error *ngIf="
+            product.controls['image']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="action != 'Product Delete'" appearance="fill" class="example-button-row">
+            <mat-label>Currency Type *</mat-label>
+            <mat-select formControlName="currencyType" >
+                <mat-option value="SOL">SOL</mat-option>
+                <mat-option value="USD">USD</mat-option>
+                <mat-option value="EUR">EUR</mat-option>
+            </mat-select>
+            <mat-error *ngIf="
+            product.controls['currencyType']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="action != 'Product Delete'" class="fullWidth" appearance="outline">
+            <mat-label>Amount *</mat-label>
+            <input matInput type="number" name="amount" formControlName="amount" />
+            <mat-error *ngIf="
+            product.controls['amount']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+        <ng-template #elseTemplate>
+            Do you want to delete the record? <b>{{local_data.name}}</b>
+        </ng-template>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button (click)="doAction()" [disabled]="product.invalid">Save</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button class="cancel">Cancel</button>
+</div>

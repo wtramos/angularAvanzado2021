@@ -1,0 +1,59 @@
+<p>
+  <mat-toolbar color="primary">
+    <img src="assets/images/shopping-sale.png" alt="..." style="height: 50px;width: 80px;" />
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    
+    <span class="example-spacer"></span>
+    <div class="example-flex-container">
+      <div class="example-label">
+        <mat-form-field appearance="fill">
+          <mat-label>Selection Brand</mat-label>
+          <mat-select [formControl]="product">
+            <mat-select-trigger>
+              {{product.value ? product.value : ''}}
+            </mat-select-trigger>
+            <mat-option value="All" (click)="getProducts()">All</mat-option>
+            <mat-option *ngFor="let brand of brandList" [value]="brand" (click)="searchByBrand()">{{brand}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-icon-button class="example-icon" aria-label="shopping cart">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<div class="container">
+  <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    [interval]="3000"
+    color="accent"
+    maxWidth="auto"
+    [proportion]="20"
+    [slides]="5"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="true"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr">
+
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of slides; let i = index"
+    [image]="slide.image"
+    overlayColor="#00000040"
+    class="carousel-item"
+    [hideOverlay]="false"></mat-carousel-slide>
+  </mat-carousel>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <app-product-list-shoppingcart class="col"
+      *ngFor="let product of products"
+      [product]="product"
+      (consult)="openDialog($event)">
+      </app-product-list-shoppingcart>
+  </div>
+</div>

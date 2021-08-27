@@ -1,0 +1,103 @@
+<div class="nav-bar p-col-12" style="text-align: center">
+    <h2>Academia moviles</h2>
+</div>
+
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-md-3">
+      <section>
+        <div class="example-label">Filter Brand</div>
+        <mat-form-field appearance="fill" class="example-button-row">
+          <mat-label>Selection Brand</mat-label>
+          <mat-select [formControl]="product">
+            <mat-select-trigger>
+              {{product.value ? product.value : ''}}
+            </mat-select-trigger>
+            <mat-option value="All" (click)="getProducts()">All</mat-option>
+            <mat-option *ngFor="let brand of brandList" [value]="brand" (click)="searchByBrand()">{{brand}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+    </div>
+    <div class="col-md-3">
+      <section>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <div class="example-label">
+              <button mat-fab color="primary" aria-label="Add Product" 
+              (click)="create()">
+                <mat-icon>add</mat-icon>
+              </button>
+              Add Product
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <app-product-list class="col"
+      *ngFor="let product of products"
+      [product]="product"
+      (edit)="openDialog('Product Update',$event)"
+      (delete)="openDialog('Product Delete',$event)">
+      </app-product-list>
+     
+    <!-- <div class="p-col-12" style="text-align: center"> 
+      <h3>List Products</h3>
+    </div>
+    <div class="mat-elevation-z8">
+      <table mat-table class="full-width-table" [dataSource]="dataSource">
+  
+        <ng-container matColumnDef="name">
+          <th class="font-weight-600" mat-header-cell *matHeaderCellDef> Name </th>
+          <td class="mat-column-name" mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="description">
+          <th class="font-weight-600 text-center" mat-header-cell *matHeaderCellDef> Descripction </th>
+          <td class="mat-column-description" mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="brand">
+          <th class="font-weight-600" mat-header-cell *matHeaderCellDef> Brand </th>
+          <td class="mat-column-brand" mat-cell *matCellDef="let element"> {{element.brand}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="image">
+          <th class="font-weight-600 text-center" mat-header-cell *matHeaderCellDef> Image </th>
+          <td class="mat-column-image" mat-cell *matCellDef="let element"> <img [src]="element.image" /> </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="amount">
+          <th class="font-weight-600 text-center" mat-header-cell *matHeaderCellDef> Amount </th>
+          <td class="mat-column-amount" mat-cell *matCellDef="let element"> {{element.price.amount | number:'1.2-2'}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="currencyType">
+          <th class="font-weight-600" mat-header-cell *matHeaderCellDef> Coin Type </th>
+          <td class="mat-column-currencyType" mat-cell *matCellDef="let element"> {{element.price.currencyType}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th class="font-weight-600" mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element" class="mat-column-action"> 
+            <button mat-icon-button (click)="openDialog('Product Update',element)">
+              <mat-icon mat-icon-button color='primary'>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDialog('Product Delete',element)">
+              <mat-icon mat-icon-button color="warn">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      </table>
+      <mat-paginator [pageSize]="5" 
+        [pageSizeOptions]="[5, 10, 50]" showFirstLastButtons></mat-paginator>
+    </div> -->
+  </div>
+</div>

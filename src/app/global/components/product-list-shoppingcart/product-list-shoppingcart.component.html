@@ -1,0 +1,13 @@
+<div class="card h-100">
+    <img [src]="product.image" alt="..." class="card-img-top" />
+    <div class="card-body">
+        <h3 class="card-title">{{product.name}}</h3>
+        <p class="card-text">{{product.description}}</p>
+        <p>{{product.price.amount | currency:product.price.currencyType}}</p>
+    </div>
+    <div class="card-footer">
+        <button mat-icon-button (click)="consult.emit(product)">
+            <mat-icon mat-icon-button color='primary'>travel_explore</mat-icon>
+        </button>
+    </div>
+</div>

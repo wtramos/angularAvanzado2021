@@ -1,0 +1,19 @@
+<div class="container-center">
+    <div class="login-container">
+        <h1>Inicio de Sesión</h1>
+        <form autocomplete="off">
+            <mat-form-field appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <input matInput placeholder="mail@dominio.com" type="email" autocomplete="none"
+                    [(ngModel)]="email" [ngModelOptions]="{standalone: true}" required
+                     />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput placeholder="Contraseña" type="password" autocomplete="none"
+                    [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required />
+            </mat-form-field>
+            <button mat-flat-button class="btn" (click)="login()">Ingresar</button>
+        </form>
+    </div>
+</div>

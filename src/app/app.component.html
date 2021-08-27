@@ -1,0 +1,34 @@
+<!--<h1>hola mundo {{title}}</h1>
+
+<form [formGroup]="formGroup" (submit)='getEmail()'>
+  <label>Email</label>
+  <input type="email" formControlName='email' />
+  <label>Nombre</label>
+  <input type="nombre" formControlName='nombre' />
+
+  <button type="submit" 
+          [disabled]='formGroup.invalid'
+  >El email ingresado es</button>
+</form>-->
+
+<!-- <button (click)="cambiarNombre()">Cambiar el titulo</button>
+
+<h2>Listado de Libros</h2>
+<div *ngFor="let book of libros" (click)="selectedBook(book)">
+  <h3>Nombre: {{book.nombre}}</h3>
+  <p>Precio: {{book.precio | currency: 'S/ '}}</p>
+  <p>Fecha: {{book.orderBy | date: 'dd/MM/yyyy'}}</p>
+</div>
+
+<div *ngIf="showList">
+  <h2>Listado de Alumnos</h2>
+  <div *ngFor="let alumno of alumnos">
+    <h3>Nombre: {{alumno.nombre}}</h3>
+    <p>Edad: {{alumno.edad}}</p>
+  </div>
+</div>
+
+<button (click)="hideShowList()">{{showList ? "Ocultar Listado" : "Mostrar Listado"}}</button> -->
+
+
+<router-outlet></router-outlet>

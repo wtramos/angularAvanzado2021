@@ -1,0 +1,37 @@
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.card-img-top {
+    flex-grow: 1;
+    object-fit:cover;
+}
+
+@media (min-width: 576px) {
+  .card-img-top {
+      height: 19vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-img-top {
+      height: 16vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-img-top {
+      height: 11vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-img-top {
+      height: 11vw;
+  }
+}
+
+.cancel {
+    background-color: #ed1236;
+}

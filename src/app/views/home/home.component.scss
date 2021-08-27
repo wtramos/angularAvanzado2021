@@ -1,0 +1,136 @@
+.home-container{
+    width: 95%;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #bbb;
+    padding: 18px;
+
+    h1 {
+        text-align: center;
+        margin: 12px;
+    }
+}
+
+.nav-bar{
+    width: 100%;
+    height: 60px;
+    background-color: #0073ff;
+    color:white;
+    margin-bottom: 12px;
+}
+
+.full-width-table {
+    width: 100%;
+}
+.mat-column-name {
+    width: 15% !important;
+}
+.mat-column-description {
+    width: 35% !important;
+}
+.mat-column-brand {
+    width: 10% !important;
+}
+.mat-column-image {
+    width: 10% !important;
+}
+.mat-column-amount {
+    width: 10% !important;
+    text-align: center;
+    justify-content: flex-end;
+}
+.mat-column-currencyType {
+    width: 10% !important;
+}
+.mat-column-action {
+  width: 10% !important;
+}
+
+img {
+    height: 100px;
+    width: 200px;
+  }
+
+form {
+  label {
+      width: 300px;
+      margin-right: 12px;
+  }  
+
+  input {
+      width: 500px;
+      height: 35px;
+      background-color: #f0f0f0;
+      margin-bottom: 12px;
+      border: none;
+  }
+
+  button {
+      width: 125px;
+      height: 40px;
+      border: none;
+      border-radius: 12px;
+      color:white;
+  }
+}
+
+section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  ::ng-deep .estilo-mensaje-error {
+    background-color: #dc143c;
+    color:white;
+
+    .mat-simple-snackbar-action {
+        color: white;
+        font-weight: bold;
+    }
+}
+
+::ng-deep .estilo-mensaje-informacion {
+    background-color: #120064;
+    color:white;
+
+    .mat-simple-snackbar-action {
+        color: white;
+        font-weight: bold;
+    }
+}
+
+::ng-deep .estilo-mensaje-exito {
+    background-color: #006400;
+    color:white;
+
+    .mat-simple-snackbar-action {
+        color: white;
+        font-weight: bold;
+    }
+}
