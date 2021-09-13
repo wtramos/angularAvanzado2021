@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoaderComponent } from 'src/app/global/components/loader/loader.component';
+import { CryptoFunctions } from 'src/app/global/utils/crypto.util';
 
 @Component({
   selector: 'app-login',
@@ -16,14 +17,20 @@ export class LoginComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private _crypto: CryptoFunctions
+  ) { 
+    const encrypted256 = this._crypto.encrypt("Academia Moviles");
+    const encryptedAES = this._crypto.encryptAES("Academia Moviles");
+    const decryptedAES = this._crypto.descryptAES(encryptedAES);
+    console.log({ encrypted256, encryptedAES, decryptedAES });
+  }
 
   ngOnInit(): void {
     this.authService.getCurrentUser().then(el => {
       if (el){
-        // this.router.navigate(['home']);
-        this.router.navigate(['home-shoppingcart']);
+        this.router.navigate(['home']);
+        //this.router.navigate(['home-shoppingcart']);
       }
     });
   }
@@ -34,8 +41,8 @@ export class LoginComponent implements OnInit {
       const response = await this.authService.signIn(this.email, this.password);
       this.dialog.closeAll();
       if (response.success) {
-        this.router.navigate(['home-shoppingcart']);
-        // this.router.navigate(['home']);
+        // this.router.navigate(['home-shoppingcart']);
+        this.router.navigate(['home']);
         return;
       }
       console.log(response);

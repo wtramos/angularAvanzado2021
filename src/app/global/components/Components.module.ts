@@ -14,6 +14,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListShoppingcartComponent } from './product-list-shoppingcart/product-list-shoppingcart.component';
 import { ProductShoppingcartComponent } from './product-shoppingcart/product-shoppingcart.component';
+import { FakeforDirective } from 'src/app/global/directives/fakefor.directive';
+import { TitleStyleDirective } from '../directives/title.directive';
 
 export function playerFactory(){
     return import('lottie-web');
@@ -25,7 +27,9 @@ export function playerFactory(){
     ProductComponent,
     ProductListComponent,
     ProductListShoppingcartComponent,
-    ProductShoppingcartComponent  
+    ProductShoppingcartComponent,
+    FakeforDirective,
+    TitleStyleDirective
   ],
   imports: [
     CommonModule,
@@ -46,7 +50,8 @@ export function playerFactory(){
       LoaderComponent,
       ProductComponent,
       ProductListComponent,
-      ProductListShoppingcartComponent
+      ProductListShoppingcartComponent,
+      TitleStyleDirective
   ]
 })
 export class ComponentsModule { }

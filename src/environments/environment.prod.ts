@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  salt:"Ac4d3m14Pr0d",
   firebase: {
     apiKey: "AIzaSyB05rfY0DmEgHvhpjFr9yUZYOX2Wke1CF4",
     authDomain: "angular-2021-wtorres.firebaseapp.com",

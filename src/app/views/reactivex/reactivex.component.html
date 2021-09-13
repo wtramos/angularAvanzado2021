@@ -1,0 +1,139 @@
+<div class="nav-bar p-col-12" style="text-align: center">
+    <h1>Academia moviles Laboratorio</h1>
+</div>
+<div class="progress-bar" #progressBar></div>
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-md-12">
+            <div class="example-label">Search User</div>
+            <input type="text" placeholder="Search user" #searchInput>
+        </div>
+    </div>
+    <div>
+        <div class="p-col-12" style="text-align: center">
+            <h3>List Users</h3>
+        </div>
+        <div class="mat-elevation-z8">
+            <table mat-table class="full-width-table" [dataSource]="dataSource">
+
+                <ng-container matColumnDef="login">
+                    <th class="font-weight-600" mat-header-cell *matHeaderCellDef> Login </th>
+                    <td class="mat-column-login" mat-cell *matCellDef="let element"> {{element.login}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="id">
+                    <th class="font-weight-600 text-center" mat-header-cell *matHeaderCellDef> Id </th>
+                    <td class="mat-column-id" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="node_id">
+                    <th class="font-weight-600" mat-header-cell *matHeaderCellDef> Node </th>
+                    <td class="mat-column-node_id" mat-cell *matCellDef="let element"> {{element.node_id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="url">
+                    <th class="font-weight-600 text-center" mat-header-cell *matHeaderCellDef> Url </th>
+                    <td class="mat-column-url" mat-cell *matCellDef="let element"> {{element.url}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="type">
+                    <th class="font-weight-600 text-center" mat-header-cell *matHeaderCellDef> Type </th>
+                    <td class="mat-column-type" mat-cell *matCellDef="let element"> {{element.type}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+<!-- <p>
+We recognize that you need stability from the Angular framework. Stability ensures that reusable components and libraries, tutorials, tools, and learned practices don't become obsolete unexpectedly. Stability is essential for the ecosystem around Angular to thrive.
+</p>
+
+<p>
+We also share with you the desire for Angular to keep evolving. We strive to ensure that the foundation on top of which you are building is continuously improving and enabling you to stay up-to-date with the rest of the web ecosystem and your user needs.
+</p>
+
+<p>
+This document contains the practices that we follow to provide you with a leading-edge application development platform, balanced with stability. We strive to ensure that future changes are always introduced in a predictable way. We want everyone who depends on Angular to know when and how new features are added, and to be well-prepared when obsolete ones are removed.
+</p>
+
+<p>Angular receives a large number of feature requests, both from inside Google and from the broader open-source community. At the same time, our list of projects contains plenty of maintenance tasks, code refactorings, and potential performance improvements. We bring together representatives from developer relations, product management, and engineering to prioritize this list. As new projects come into the queue, we regularly position them based on relative priority to other projects. As work gets done, projects will move up in the queue.
+</p>
+
+<p>
+The projects below are not associated with a particular Angular version. We'll release them on completion, and they will be part of a specific version based on our release schedule, following semantic versioning. For example, features are released in the next minor after they are complete, or the next major if they include breaking changes.</p>
+
+<p>
+Improve test times and debugging with automatic test environment tear down
+To improve test time and create better isolation across tests, we want to change TestBed to automatically clean up and tear down the test environment after each test run.
+</p>
+
+<p>
+Deprecate and remove IE11 support
+IE11 has been preventing Angular from taking advantage of some of the modern features of the Web platform. As part of this project we are going to deprecate and remove IE11 support to open the path for modern features that evergreen browsers provide. We ran an RFC to collected feedback from the community and decide on next steps to move forward.
+</p>
+
+<p>
+Leverage ES2017+ as the default output language
+Supporting modern browsers will allow us to leverage the more compact, expressive, and performant new syntax of JavaScript. As part of this project we’ll investigate what are the blockers to move forward with this effort and take the steps forward to enable it.
+</p>
+
+<p>
+Revamp performance dashboards to detect regressions
+We have a set of benchmarks that we run against every code change to ensure Angular aligns with our performance standards. To ensure the framework’s runtime does not regress after a code change, we need to refine some of the existing infrastructure the dashboards step on.
+</p>
+
+<p>
+Enhanced Angular Material components by integrating MDC Web
+MDC Web is a library created by Google's Material Design team that provides reusable primitives for building Material Design components. The Angular team is incorporating these primitives into Angular Material. Using MDC Web will align Angular Material more closely with the Material Design specification, expand accessibility, improve component quality, and improve our team's velocity.
+</p>
+
+<p>
+Angular component accessibility
+We're evaluating components in Angular Material against accessibility standards such as WCAG and working to fix any issues that arise from this process.
+</p>
+
+<p>
+Remove legacy View Engine
+After the transition of all our internal tooling to Ivy is completed, we will remove the legacy View Engine for reduced Angular conceptual overhead, smaller package size, lower maintenance cost, and lower codebase complexity.
+</p>
+
+<p>
+Publish guides on advanced concepts
+Develop and publish an in-depth guide on change detection. Develop content for performance profiling of Angular applications. Cover how change detection interacts with Zone.js and explain when it gets triggered, how to profile its duration, as well as common practices for performance optimization.
+</p>
+
+<p>
+Update our e2e testing strategy
+To ensure we provide a future-proof e2e testing strategy, we want to evaluate the state of Protractor, community innovations, e2e best practices, and explore novel opportunities. As first steps of the effort, we shared an RFC and worked with partners to ensure smooth integration between the Angular CLI and state of the art tooling for e2e testing. As the next step, we need to finalize the recommendations and compile a list of resources for the transition.
+</p>
+
+<p>
+Angular libraries use Ivy
+Earlier in 2020, we shared an RFC for Ivy library distribution. After invaluable feedback from the community, we developed a design of the project. We are now investing in the development of Ivy library distribution, including an update of the library package format to use Ivy compilation, unblock the deprecation of the View Engine library format, and ngcc.
+</p>
+
+<p>
+Ensure smooth adoption for future RxJS changes (v7 and beyond)
+We want to ensure Angular developers are taking advantage of the latest capabilities of RxJS and have a smooth transition to the next major releases of the framework. For this purpose, we will explore and document the scope of the changes in v7 and beyond RxJS and plan an update strategy.
+</p>
+
+<p>
+Simplified Angular mental model with optional NgModules
+To simplify the Angular mental model and learning journey, we’ll be working on making NgModules optional. This work will allow developers to develop standalone components and implement an alternative API for declaring the component’s compilation scope.
+</p>
+
+<p>
+Future
+Investigate micro frontend architecture for scalable development processes
+Look into independent deployability and development of large-scale applications to improve efficiency and productivity. The Angular community has an established story for micro frontend support. As part of this effort, we’d investigate what would be the correct abstractions to provide better support.
+</p>
+
+<p>
+Better developer ergonomics with strict typing for @angular/forms
+We will work on implementing stricter type checking for reactive forms. This way, we will allow developers to catch more issues during development time, enable better text editor and IDE support, and improve the type checking for reactive forms.
+</p> -->

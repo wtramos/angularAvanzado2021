@@ -25,10 +25,14 @@ import { MatSelectModule } from '@angular/material/select/';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ComponentsModule } from './global/components/Components.module';
+import { PaymentsComponent } from './views/payments/payments.component';
+import { ReactivexComponent } from './views/reactivex/reactivex.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PaymentsComponent,
+    ReactivexComponent
   ],
   imports: [
     BrowserModule,

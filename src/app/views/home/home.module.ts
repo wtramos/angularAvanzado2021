@@ -17,10 +17,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ComponentsModule } from 'src/app/global/components/Components.module';
+import { FakeifDirective } from 'src/app/global/directives/fakeif.directive';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    FakeifDirective
   ],
   imports: [
     CommonModule,

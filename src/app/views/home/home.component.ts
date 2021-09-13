@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ProductComponent } from 'src/app/global/components/product/product.component';
 import { LoaderComponent } from 'src/app/global/components/loader/loader.component';
+import { CryptoFunctions } from 'src/app/global/utils/crypto.util';
 
 @Component({
   selector: 'app-home',
@@ -36,19 +37,21 @@ export class HomeComponent implements OnInit, OnDestroy {
   brandList: string[] = [];
   productDetail: FormGroup;
   productSelected: Product | null = null;
+  testDirective: boolean = true;
 
   constructor(
     private productService: ProductService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private _crypto: CryptoFunctions
   ) {
     this.productDetail = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(8)]],
       image: [null, [Validators.required, Validators.minLength(8)]],
       amount: [null, [Validators.required, Validators.minLength(1)]],
-    })
+    });
   }
 
   //TODO: Agregar registros en el FireBase en la colección de products.

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  salt:"Ac4d3m14",
   firebase: {
     apiKey: "AIzaSyB05rfY0DmEgHvhpjFr9yUZYOX2Wke1CF4",
     authDomain: "angular-2021-wtorres.firebaseapp.com",

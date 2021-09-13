@@ -1,0 +1,35 @@
+.payment-form {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    // display: flex;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #bbb;
+    text-align: center;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.card-date, .card-ccv {
+    display: inline-block;
+    min-width: 320px;
+}
+
+.btn{
+    color: white;
+    background-color: blue;
+    border: none;
+    padding: .5em 2em;
+    border-radius: 2em;
+    box-shadow: 0 0 2px 2px;
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: none;
+    &:hover{
+        background-color: gray;
+        cursor: pointer;
+    }
+}

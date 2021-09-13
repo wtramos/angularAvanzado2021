@@ -1,0 +1,24 @@
+<div class="container-center">
+    <div class="payment-form">
+        <h1>Payment gateway</h1>
+        <form [formGroup]="paymentForm" (submit)="onPay()">
+            <mat-form-field apparance="outline">
+                <mat-label>Customer name</mat-label>
+                <input id="card-name" matInput placeholder="Customer name" type="text" formControlName="name" />
+            </mat-form-field>
+            <mat-form-field apparance="outline">
+                <mat-label>Card number</mat-label>
+                <input id-number matInput placeholder="Card number" type="number" formControlName="num" />
+            </mat-form-field>
+            <mat-form-field apparance="outline" class="card-date">
+                <mat-label>Due date</mat-label>
+                <input id="card-date" matInput placeholder="MM/YY" type="date" formControlName="date" />
+            </mat-form-field>
+            <mat-form-field apparance="outline" class="card-ccv">
+                <mat-label>CCV</mat-label>
+                <input id="card-ccv" matInput placeholder="CCV" type="number" formControlName="cvv" />
+            </mat-form-field>
+            <button  mat-flat-button class="btn">Pay $ {{amount}}</button>
+        </form>
+    </div>
+</div>
