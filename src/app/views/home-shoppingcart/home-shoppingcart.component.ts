@@ -44,7 +44,15 @@ export class HomeShoppingcartComponent implements OnInit, OnDestroy {
     this.getProducts();
     this.productObserver = this.productService.getProductsRealTime$().subscribe(
       next => {
-        this.products = next;
+        console.log(next);
+        //this.products = next;
+        this.products = next.map((product) => {
+          return {
+            _id: product.payload.doc.id,
+            ...product.payload.doc.data()
+          } as Product
+        });
+
         this.products.forEach((product) => {
           if (!this.brandList.includes(product.brand)) {
             this.brandList.push(product.brand);

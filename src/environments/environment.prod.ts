@@ -8,5 +8,7 @@ export const environment = {
     storageBucket: "angular-2021-wtorres.appspot.com",
     messagingSenderId: "987283330784",
     appId: "1:987283330784:web:1870459e7a56f8a4b5e285"
-  }
+  },
+  BASE_URL: "http://localhost:8086/",
+  token: '12345678'
 };

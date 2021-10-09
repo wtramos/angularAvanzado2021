@@ -27,12 +27,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ComponentsModule } from './global/components/Components.module';
 import { PaymentsComponent } from './views/payments/payments.component';
 import { ReactivexComponent } from './views/reactivex/reactivex.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TasksComponent } from './views/tasks/tasks.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Taskv2Component } from './views/tasks/taskv2/taskv2.component';
+import { MyInterceptor } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentsComponent,
-    ReactivexComponent
+    ReactivexComponent,
+    TasksComponent,
+    Taskv2Component
   ],
   imports: [
     BrowserModule,
@@ -52,9 +59,15 @@ import { ReactivexComponent } from './views/reactivex/reactivex.component';
     BrowserAnimationsModule,
     MatCarouselModule,
     MatToolbarModule,
+    DragDropModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, 
+    useClass: MyInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

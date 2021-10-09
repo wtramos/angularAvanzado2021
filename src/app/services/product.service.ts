@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore } from '@angular/fire/firestore';
+import {AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { Product } from '../models/Product.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -34,7 +34,12 @@ export class ProductService {
     }
   }
 
-  public getProductsRealTime$(): Observable<Product[]> {
+  public getProductsRealTime$(): Observable<DocumentChangeAction<Product>[]> {
+    const products = this.firestoreService.collection<Product>('products').snapshotChanges();
+    return products;
+  }
+
+  public getProductsRealTime2$(): Observable<Product[]> {
     const products = this.firestoreService.collection<Product>('products').valueChanges().pipe(
       map(product => {
         return product;

@@ -1,0 +1,21 @@
+<div class="container" cdkDropListGroup>
+	<div class="content">
+		<div *ngFor="let taskCard of listTask" class="taskCard"
+			cdkDropList
+			[cdkDropListData]="taskCard.tasks"
+			(cdkDropListDropped)="drop($event)"
+		>
+			<div [ngClass]="{
+				'header': true,
+				'todo': taskCard.id == 0,
+				'doing': taskCard.id == 1,
+				'done': taskCard.id == 2
+			}">
+				<h2>{{taskCard.title}}</h2>
+			</div>
+			<div class="taskItem" *ngFor="let task of taskCard.tasks" cdkDrag>
+				{{task.title}}
+			</div>
+		</div>
+	</div>
+</div>

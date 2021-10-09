@@ -1,0 +1,14 @@
+<div class="container">
+    <!-- TODO CAMBIAR POR EL LOADER -->
+    <h1 *ngIf="loading">Cargando....</h1>
+    <h2>La Lista de tareas</h2>
+    <div class="task-card" *ngFor="let task of tasksList; let index = index">
+        <div>
+            <h3>{{task.title}}</h3>
+            <h3>{{task.description}}</h3>
+            <button mat-flat-button color="secondary" (click)="togglePhase(task, false)">Fase anterior</button>
+            <button mat-flat-button color="primary" (click)="togglePhase(task, true)">Siguiente fase</button>
+        </div>
+        <h3>{{task.type === 'todo' ? 'Por hacer' : task.type === 'doing' ? 'En proceso' : 'Terminado'}}</h3>
+    </div>
+</div>
